@@ -12,3 +12,27 @@ pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
 pip install --no-deps trl peft accelerate bitsandbytes
 ```
 
+## SFT fine-tuning
+```shell
+# assuming slurm
+sbatch --time=1240 --mem-per-cpu=25000 --gpus=1 --gres=gpumem:24G --wrap="python src/train_script_supervised_finetuning.py --infile data/smartvote_dataset_trainset.json --model_name unsloth/llama-3-8b-Instruct-bnb-4bit --output_dir llama-3-instruct-SFT"
+```
+
+## ORPO alignment
+```shell
+# assuming slurm
+sbatch --time=2880 --mem-per-cpu=25000 --gpus=1 --gres=gpumem:24G --wrap="python src/train_script_orpo_new_params.py --filename data/smartvote_dataset_trainset.json --model_name unsloth/llama-3-8b-Instruct-bnb-4bit --save_path llama-3-instruct-ORPO"
+```
+
+## Generate with model
+```shell
+# TODO implement
+```
+
+## Evaluation
+- Diversity scores
+- MAUVE scores
+
+## Plain smartovte dataset
+
+
