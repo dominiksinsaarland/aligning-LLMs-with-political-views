@@ -1,0 +1,12 @@
+---
+name: alignment
+channels:
+  - pytorch
+  - nvidia
+  - xformers
+dependencies:
+  - pytorch-cuda=12.1
+  - pytorch
+  - cudatoolkit
+  - xformers
+  - pip
