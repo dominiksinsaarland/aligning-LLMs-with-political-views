@@ -9,7 +9,7 @@ Assuming [Anaconda](https://docs.anaconda.com/anaconda/install/) and linux, the 
 ```shell
 conda install pytorch-cuda=12.1 pytorch cudatoolkit xformers -c pytorch -c nvidia -c xformers
 pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
-pip install --no-deps trl peft accelerate bitsandbytes
+pip install --no-deps trl peft accelerate bitsandbytes transformers
 ```
 
 ## SFT fine-tuning
@@ -26,7 +26,9 @@ sbatch --time=2880 --mem-per-cpu=25000 --gpus=1 --gres=gpumem:24G --wrap="python
 
 ## Generate with model
 ```shell
-# TODO implement
+# assuming slurm
+sbatch --time=2880 --mem-per-cpu=25000 --gpus=1 --gres=gpumem:24G --wrap="python src/train_script_orpo_new_params.py --model_pth <path/to/checkpoint> --prompt "Your prompt" 
+
 ```
 
 ## Evaluation
