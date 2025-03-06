@@ -1,3 +1,4 @@
+from unsloth import FastLanguageModel
 import torch
 from transformers import TrainingArguments
 from trl import DPOTrainer, SFTTrainer
@@ -6,10 +7,6 @@ from datasets import Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import argparse
 
-try:
-	from unsloth import FastLanguageModel
-except:
-	pass
 	
 
 
