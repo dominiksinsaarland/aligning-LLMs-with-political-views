@@ -27,8 +27,11 @@ sbatch --time=2880 --mem-per-cpu=25000 --gpus=1 --gres=gpumem:24G --wrap="python
 ## Generate with model
 ```shell
 # assuming slurm
-sbatch --time=2880 --mem-per-cpu=25000 --gpus=1 --gres=gpumem:24G --wrap="python src/train_script_orpo_new_params.py --model_pth <path/to/checkpoint> --prompt "Your prompt" 
-
+sbatch --time=300 --mem-per-cpu=25000 --gpus=1 --gres=gpumem:24G --wrap="python src/inference.py \
+    --model_pth <path/to/checkpoint> \
+	--query "<your query>" \
+	--party "<a political party>" \
+	--language "<choose a language>"
 ```
 
 ## Evaluation
